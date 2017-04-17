@@ -244,4 +244,11 @@
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/errMsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="30dp"
+        android:text=""/>
+
 </android.support.design.widget.CoordinatorLayout>

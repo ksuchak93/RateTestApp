@@ -44,6 +44,8 @@ public class PostData extends AppCompatActivity {
 
     TextView tvCommentsSuggestions;
 
+    TextView tvErrMsg;
+
     RatingBar rbPrice;
 
     RatingBar rbTaste;
@@ -69,6 +71,7 @@ public class PostData extends AppCompatActivity {
         tvEmailId = (EditText)findViewById(R.id.etEmailId);
         tvMeal = (EditText)findViewById(R.id.etMeal);
         tvCommentsSuggestions = (EditText)findViewById(R.id.etcommentsSuggestions);
+        tvErrMsg = (TextView) findViewById(R.id.errMsg);
         rbPrice = (RatingBar)findViewById(R.id.rbPriceRating);
         rbLooks = (RatingBar)findViewById(R.id.rbLooksRating);
         rbTaste = (RatingBar)findViewById(R.id.rbTasteRating);
@@ -80,16 +83,12 @@ public class PostData extends AppCompatActivity {
             public void onClick(View v) {
 
 
-
                 setMyModelData();
 
-                validateData(myDataModel);
-
-                new SendRequest().execute();
-
-                setDefaultValueOfFields();
-
-
+                if(validateData(myDataModel)){
+                    new SendRequest().execute();
+                    setDefaultValueOfFields();
+                }
 
             }
 
@@ -195,11 +194,14 @@ public class PostData extends AppCompatActivity {
         }
     }
 
-    public void validateData(MyDataModel myDataModel){
+    public boolean validateData(MyDataModel myDataModel){
 
         if(myDataModel.getName().equals("")){
-
+            tvErrMsg.setText("Please Enter Your Name");
+            return false;
         }
+
+        return true;
 
 
     }
