@@ -79,16 +79,18 @@ public class PostData extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                myDataModel.setName(tvName.getText().toString());
-                myDataModel.setPhoneNumber(tvPhoneNumber.getText().toString());
-                myDataModel.setEmailId(tvEmailId.getText().toString());
-                myDataModel.setMeal(tvMeal.getText().toString());
-                myDataModel.setEmailId(tvEmailId.getText().toString());
-                int i = rbLooks.getNumStars();
-                myDataModel.setCommentsSuggestions(tvCommentsSuggestions.getText().toString());
 
+
+                setMyModelData();
+
+                validateData(myDataModel);
 
                 new SendRequest().execute();
+
+                setDefaultValueOfFields();
+
+
+
             }
 
         }   );
@@ -110,7 +112,7 @@ public class PostData extends AppCompatActivity {
 
             try{
                 //Change your web app deployed URL or u can use this
-                URL url = new URL("https://script.google.com/macros/s/AKfycbw3n3EyJLeDQV2uhz4w1NVnd3uvhxlVG3x86eW41l4QhS8MyfiO/exec");
+                URL url = new URL("https://script.google.com/macros/s/AKfycbyklZx0IGlDV6enQnEZPuqse07MrAIxPUqgUmyFQwd2JQzNxHw/exec");
               
                 JSONObject postDataParams = new JSONObject();
 
@@ -120,11 +122,24 @@ public class PostData extends AppCompatActivity {
 
                 //    String usn = Integer.toString(i);
 
-                String id= "1IHULD8KqYHJrOcPkLuKndjpgxg2MFpizPpt6XpXY3bA";
+                String id= "1MAMQUAJYOIRWKp83VjUa6G47HM7kqUFrYGvmJ9xchTI";
 
                 postDataParams.put("name",myDataModel.getName());
-                postDataParams.put("salary",myDataModel.getPhoneNumber());
+                postDataParams.put("phoneNumber",myDataModel.getPhoneNumber());
+                postDataParams.put("emailId",myDataModel.getEmailId());
+                postDataParams.put("meal",myDataModel.getMeal());
+                postDataParams.put("tasteRating",myDataModel.getTasteRating());
+                postDataParams.put("amountRating",myDataModel.getAmountRating());
+                postDataParams.put("looksRating",myDataModel.getLooksRating());
+                postDataParams.put("sidesRating",myDataModel.getSidesRating());
+                postDataParams.put("priceRating",myDataModel.getPriceRating());
+                postDataParams.put("overallRating",myDataModel.getOverallRating());
+                postDataParams.put("commentsAndSugg",myDataModel.getCommentsSuggestions());
+                postDataParams.put("date",myDataModel.getDate());
+
+
                 postDataParams.put("id",id);
+
 
 
                 Log.e("params",postDataParams.toString());
@@ -178,6 +193,42 @@ public class PostData extends AppCompatActivity {
                     Toast.LENGTH_LONG).show();
 
         }
+    }
+
+    public void validateData(MyDataModel myDataModel){
+
+        if(myDataModel.getName().equals("")){
+
+        }
+
+
+    }
+
+    public void setMyModelData(){
+
+        myDataModel.setName(tvName.getText().toString());
+        myDataModel.setPhoneNumber(tvPhoneNumber.getText().toString());
+        myDataModel.setEmailId(tvEmailId.getText().toString());
+        myDataModel.setMeal(tvMeal.getText().toString());
+        myDataModel.setTasteRating(rbTaste.getRating());
+        myDataModel.setLooksRating(rbLooks.getRating());
+        myDataModel.setPriceRating(rbPrice.getRating());
+        myDataModel.setSidesRating(rbSides.getRating());
+        myDataModel.setOverallRating(rbOverall.getRating());
+        myDataModel.setCommentsSuggestions(tvCommentsSuggestions.getText().toString());
+
+
+
+    }
+
+    public void setDefaultValueOfFields(){
+
+        tvName.setText("");
+        tvPhoneNumber.setText("");
+        tvEmailId.setText("");
+        tvMeal.setText("");
+        tvCommentsSuggestions.setText("");
+
     }
 
     public String getPostDataString(JSONObject params) throws Exception {

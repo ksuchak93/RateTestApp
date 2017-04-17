@@ -23,9 +23,9 @@
 //
 //import java.util.ArrayList;
 //
-//import androidlabs.gsheets2.adapter.MyArrayAdapter;
+////import androidlabs.gsheets2.adapter.MyArrayAdapter;
 //import androidlabs.gsheets2.model.MyDataModel;
-//import androidlabs.gsheets2.parser.JSONParser;
+//
 //import androidlabs.gsheets2.util.InternetConnection;
 //import androidlabs.gsheets2.util.Keys;
 //
@@ -39,7 +39,6 @@
 //    protected void onCreate(Bundle savedInstanceState) {
 //        super.onCreate(savedInstanceState);
 //        setContentView(R.layout.user_list);
-//
 //
 //
 //        /**
@@ -104,15 +103,15 @@
 //             * Progress Dialog for User Interaction
 //             */
 //
-//            x=list.size();
+//            x = list.size();
 //
-//            if(x==0)
-//                jIndex=0;
+//            if (x == 0)
+//                jIndex = 0;
 //            else
-//                jIndex=x;
+//                jIndex = x;
 //
 //            dialog = new ProgressDialog(UserList.this);
-//            dialog.setTitle("Hey Wait Please..."+x);
+//            dialog.setTitle("Hey Wait Please..." + x);
 //            dialog.setMessage("I am getting your JSON");
 //            dialog.show();
 //        }
@@ -134,7 +133,7 @@
 //                    /**
 //                     * Check Length...
 //                     */
-//                    if(jsonObject.length() > 0) {
+//                    if (jsonObject.length() > 0) {
 //                        /**
 //                         * Getting Array named "contacts" From MAIN Json Object
 //                         */
@@ -146,8 +145,8 @@
 //
 //
 //                        int lenArray = array.length();
-//                        if(lenArray > 0) {
-//                            for( ; jIndex < lenArray; jIndex++) {
+//                        if (lenArray > 0) {
+//                            for (; jIndex < lenArray; jIndex++) {
 //
 //                                /**
 //                                 * Creating Every time New Object
@@ -174,10 +173,10 @@
 //
 //                                model.setName(name);
 //                                model.setCountry(country);
-//  //                              model.setImage(image);
-
+//                                //                              model.setImage(image);
 //
-//                                /**
+//
+//                                a         /**
 //                                 * Adding name and phone concatenation in List...
 //                                 */
 //                                list.add(model);
@@ -201,7 +200,7 @@
 //             * Checking if List size if more than zero then
 //             * Update ListView
 //             */
-//            if(list.size() > 0) {
+//            if (list.size() > 0) {
 //                adapter.notifyDataSetChanged();
 //            } else {
 //                Snackbar.make(findViewById(R.id.parentLayout), "No Data Found", Snackbar.LENGTH_LONG).show();

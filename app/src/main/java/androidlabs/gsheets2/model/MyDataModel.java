@@ -16,15 +16,17 @@ public class MyDataModel {
 
     private String meal;
 
-    private Long tasteRating;
+    private float tasteRating;
 
-    private Long looksRating;
+    private float looksRating;
 
-    private Long sidesRating;
+    private float amountRating;
 
-    private Long priceRating;
+    private float sidesRating;
 
-    private Long overallRating;
+    private float priceRating;
+
+    private float overallRating;
 
     private String commentsSuggestions;
 
@@ -70,43 +72,43 @@ public class MyDataModel {
         this.meal = meal;
     }
 
-    public Long getTasteRating() {
+    public float getTasteRating() {
         return tasteRating;
     }
 
-    public void setTasteRating(Long tasteRating) {
+    public void setTasteRating(float tasteRating) {
         this.tasteRating = tasteRating;
     }
 
-    public Long getLooksRating() {
+    public float getLooksRating() {
         return looksRating;
     }
 
-    public void setLooksRating(Long looksRating) {
+    public void setLooksRating(float looksRating) {
         this.looksRating = looksRating;
     }
 
-    public Long getSidesRating() {
+    public float getSidesRating() {
         return sidesRating;
     }
 
-    public void setSidesRating(Long sidesRating) {
+    public void setSidesRating(float sidesRating) {
         this.sidesRating = sidesRating;
     }
 
-    public Long getPriceRating() {
+    public float getPriceRating() {
         return priceRating;
     }
 
-    public void setPriceRating(Long priceRating) {
+    public void setPriceRating(float priceRating) {
         this.priceRating = priceRating;
     }
 
-    public Long getOverallRating() {
+    public float getOverallRating() {
         return overallRating;
     }
 
-    public void setOverallRating(Long overallRating) {
+    public void setOverallRating(float overallRating) {
         this.overallRating = overallRating;
     }
 
@@ -124,5 +126,13 @@ public class MyDataModel {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public float getAmountRating() {
+        return amountRating;
+    }
+
+    public void setAmountRating(float amountRating) {
+        this.amountRating = amountRating;
     }
 }
